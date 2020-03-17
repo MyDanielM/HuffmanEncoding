@@ -34,8 +34,16 @@ namespace Final
             #endregion
 
             #region Выводим коды символов
+
+            string new_input="";
             foreach (char symbol in input)
             {
+                if (!new_input.Contains(symbol))
+                    new_input += symbol.ToString();
+            }
+            foreach (char symbol in new_input)
+            {
+                
                 Console.Write("У символа {0} код = ",symbol);
                 BitArray bits = huffmanTree.GetSymbolCode(symbol);
                 foreach(bool bit in bits)
